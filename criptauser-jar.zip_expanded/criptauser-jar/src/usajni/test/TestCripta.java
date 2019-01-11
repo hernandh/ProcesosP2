@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import usajni.Resultados;
 
-public class testLibreriaEnUso {
+public class TestCripta {
 	String pass = "mipassword";
 	String sal = "sa";
 	int n = 1000;
