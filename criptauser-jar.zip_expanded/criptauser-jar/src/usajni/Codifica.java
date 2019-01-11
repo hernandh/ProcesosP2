@@ -10,18 +10,11 @@ import fundamentos.Grafica;
 import jcrypta.Jcripta;
 
 /**
- * @authors Daniel Peñil 
- * 			Hector Hernandez
- * 			Carlos Fernandez
+ * @authors Daniel Peñil,Hector Hernandez y Carlos Fernandez
  */
 public class Codifica {
-
-	/**
-	 *
-	 */
-	public Codifica() {
-
-	}
+	
+	public Codifica() {}
 
 	/**
 	 * @param args

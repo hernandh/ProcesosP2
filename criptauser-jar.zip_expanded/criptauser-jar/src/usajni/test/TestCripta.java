@@ -5,9 +5,7 @@ import org.junit.Test;
 import usajni.CodificaV2;
 
 /**
- * @authors Daniel Peñil 
- * 			Hector Hernandez
- * 			Carlos Fernandez
+ * @authors Daniel Peñil,Hector Hernandez y Carlos Fernandez
  */
 public class TestCripta {
 	@Test

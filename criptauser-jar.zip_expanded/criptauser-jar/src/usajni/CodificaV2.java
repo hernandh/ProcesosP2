@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * @authors Daniel Peñil 
- * 			Hector Hernandez
- * 			Carlos Fernandez
+ * @authors Daniel Peñil,Hector Hernandez y Carlos Fernandez
  */
 public class CodificaV2 {
 	private long tMin;
