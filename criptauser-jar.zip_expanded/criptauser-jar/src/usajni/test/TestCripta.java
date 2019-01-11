@@ -2,11 +2,14 @@ package usajni.test;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import usajni.CodificaV2;
 
-import usajni.Resultados;
-
+/**
+ * @authors Daniel Peñil 
+ * 			Hector Hernandez
+ * 			Carlos Fernandez
+ */
 public class TestCripta {
-
 	@Test
 	public void testDatos() {
 		String pass = "mipassword";
@@ -20,8 +23,8 @@ public class TestCripta {
 		long tMedioAntiguo = 51;
 		long desviacionAntigua = 9;
 
-		Resultados res = new Resultados(pass, sal, n, nBarras);
-		res.calcula();
+		CodificaV2 res = new CodificaV2(pass, sal, n, nBarras);
+		res.obtenResultados();
 
 		// a)
 		long tMin = res.getMin();

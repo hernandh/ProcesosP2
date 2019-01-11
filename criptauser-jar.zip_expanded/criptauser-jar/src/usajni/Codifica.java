@@ -6,16 +6,14 @@ package usajni;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import fundamentos.Grafica;
-
-/**
- * @author julio
- *
- */
-
 import jcrypta.Jcripta;
 
+/**
+ * @authors Daniel Peñil 
+ * 			Hector Hernandez
+ * 			Carlos Fernandez
+ */
 public class Codifica {
 
 	/**
@@ -78,9 +76,9 @@ public class Codifica {
 
 		for(int i=0; i < tiempos.size(); i++) {
 			//Formulita
-			int numBarraAfectada = Math.round(((tiempos.get(i) - tMin) * nBarras) / (tMax - tMin));
-			if(numBarraAfectada < nBarras) {
-				barras[numBarraAfectada]++;
+			int nBarraAct = Math.round(((tiempos.get(i) - tMin) * nBarras) / (tMax - tMin));
+			if(nBarraAct < nBarras) {
+				barras[nBarraAct]++;
 			}
 		}
 
