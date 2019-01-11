@@ -9,48 +9,53 @@ import org.junit.Test;
 import usajni.Resultados;
 
 public class TestCripta {
-	String pass = "mipassword";
-	String sal = "sa";
-	int n = 1000;
-	int numBarras = 10;
-	Resultados r;
-	long minAntiguo = 26;
-	long maxAntiguo = 104;
-	long mediaAntigua = 65;
-	long desvEstAntigua = 12;
-
+	
 	@Test
-	public void testDatos() {
-		r = new Resultados(pass,sal,n,numBarras);
-		r.calcula();
+	public void testDatos() {	
+		String pass = "mipassword";
+		String sal = "sa";
+		int n = 500;
+		int numBarras = 10;
+		long porcentajeVariacion = 0;
+		long porcentajeVariacionTotal = 0;
+		long minAntiguo = 26;
+		long maxAntiguo = 104;
+		long mediaAntigua = 65;
+		long desvEstAntigua = 12;
 		
-		long porcentaje = 0;
-		long porcentajeAcum = 0;
-		long media = r.getMedia();
-		System.out.println(media);
-		porcentaje = Math.abs((media-mediaAntigua))/mediaAntigua;
-		porcentajeAcum += porcentaje;
-		assertTrue(porcentaje <= 0.1);
+		Resultados res = new Resultados(pass,sal,n,numBarras);
+		res.calcula();
 		
-		long min = r.getMin();
-		System.out.println(min);
-		porcentaje = Math.abs((min-minAntiguo))/minAntiguo;
-		porcentajeAcum += porcentaje;
-		assertTrue(porcentaje <= 0.1);
+		// a)
+		long min = res.getMin();
+		System.out.println("Tiempo mejor caso: " + min);
+		porcentajeVariacion = Math.abs((min-minAntiguo)) / minAntiguo;
+		porcentajeVariacionTotal += porcentajeVariacion;
+		assertTrue(porcentajeVariacion <= 0.1);
 		
-		long max = r.getMax();
-		System.out.println(max);
-		porcentaje = Math.abs((max-maxAntiguo))/maxAntiguo;
-		porcentajeAcum += porcentaje;
-		assertTrue(porcentaje <= 0.1);
+		// b)
+		long max = res.getMax();
+		System.out.println("Tiempo peor caso: " + max);
+		porcentajeVariacion = Math.abs((max-maxAntiguo)) / maxAntiguo;
+		porcentajeVariacionTotal += porcentajeVariacion;
+		assertTrue(porcentajeVariacion <= 0.1);	
 		
-		long desvEst = r.getDesvEst();
-		System.out.println(desvEst);
-		porcentaje = Math.abs((desvEst-desvEstAntigua))/desvEstAntigua;
-		porcentajeAcum += porcentaje;
-		assertTrue(porcentaje <= 0.1);
+		// c)
+		long media = res.getMedia();
+		System.out.println("Tiempo promedio: " + media);
+		porcentajeVariacion = Math.abs((media-mediaAntigua)) / mediaAntigua;
+		porcentajeVariacionTotal += porcentajeVariacion;
+		assertTrue(porcentajeVariacion <= 0.1);
 		
-		assertTrue(porcentajeAcum <= 0.25);
+		// d)
+		long desvEst = res.getDesvEst();
+		System.out.println("Desviación estándar: " + desvEst);
+		porcentajeVariacion = Math.abs((desvEst-desvEstAntigua)) / desvEstAntigua;
+		porcentajeVariacionTotal += porcentajeVariacion;
+		assertTrue(porcentajeVariacion <= 0.1);
+		
+		// Comprobamos que el el porcentaje de variación acumulado no supera el 25%
+		assertTrue(porcentajeVariacionTotal <= 0.25);
 	}
 
 }
