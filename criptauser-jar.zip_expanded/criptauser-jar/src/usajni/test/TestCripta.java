@@ -15,47 +15,57 @@ public class TestCripta {
 		String pass = "mipassword";
 		String sal = "sa";
 		int n = 500;
-		int numBarras = 10;
+		int nBarras = 10;
 		long porcentajeVariacion = 0;
 		long porcentajeVariacionTotal = 0;
-		long minAntiguo = 26;
-		long maxAntiguo = 104;
-		long mediaAntigua = 65;
-		long desvEstAntigua = 12;
+		long tMinAntiguo = 26;
+		long tMaxAntiguo = 104;
+		long tMedioAntiguo = 65;
+		long desviacionAntigua = 12;
 		
-		Resultados res = new Resultados(pass,sal,n,numBarras);
+		Resultados res = new Resultados(pass, sal, n, nBarras);
 		res.calcula();
 		
 		// a)
-		long min = res.getMin();
-		System.out.println("Tiempo mejor caso: " + min);
-		porcentajeVariacion = Math.abs((min-minAntiguo)) / minAntiguo;
+		long tMin = res.getMin();
+		porcentajeVariacion = Math.abs((tMin - tMinAntiguo)) / tMinAntiguo;
 		porcentajeVariacionTotal += porcentajeVariacion;
+		
 		assertTrue(porcentajeVariacion <= 0.1);
+		
 		
 		// b)
-		long max = res.getMax();
-		System.out.println("Tiempo peor caso: " + max);
-		porcentajeVariacion = Math.abs((max-maxAntiguo)) / maxAntiguo;
+		long tMax = res.getMax();
+		porcentajeVariacion = Math.abs((tMax - tMaxAntiguo)) / tMaxAntiguo;
 		porcentajeVariacionTotal += porcentajeVariacion;
+		
 		assertTrue(porcentajeVariacion <= 0.1);	
 		
+		
 		// c)
-		long media = res.getMedia();
-		System.out.println("Tiempo promedio: " + media);
-		porcentajeVariacion = Math.abs((media-mediaAntigua)) / mediaAntigua;
+		long tMedio = res.getMedia();
+		porcentajeVariacion = Math.abs((tMedio - tMedioAntiguo)) / tMedioAntiguo;
 		porcentajeVariacionTotal += porcentajeVariacion;
+		
 		assertTrue(porcentajeVariacion <= 0.1);
 		
+		
 		// d)
-		long desvEst = res.getDesvEst();
-		System.out.println("Desviación estándar: " + desvEst);
-		porcentajeVariacion = Math.abs((desvEst-desvEstAntigua)) / desvEstAntigua;
+		long desviacion = res.getDesvEst();
+		porcentajeVariacion = Math.abs((desviacion - desviacionAntigua)) / desviacionAntigua;
 		porcentajeVariacionTotal += porcentajeVariacion;
+		
 		assertTrue(porcentajeVariacion <= 0.1);
+		
 		
 		// Comprobamos que el el porcentaje de variación acumulado no supera el 25%
 		assertTrue(porcentajeVariacionTotal <= 0.25);
+		
+		// Mostramos los resultados obtenidos
+		System.out.println("Tiempo mejor caso: " + tMin);
+		System.out.println("Tiempo peor caso: " + tMax);
+		System.out.println("Tiempo promedio: " + tMedio);
+		System.out.println("Desviación estándar: " + desviacion);
 	}
 
 }
