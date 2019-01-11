@@ -34,8 +34,8 @@ public class Codifica {
 		String sal;
 		String resultado;
 		long tiempo_inicial, duracion;
-		final int n = 1000;
-		final int numBarras = 10; //Puede variar dependiendo de lo bonito de la grafica
+		final int n = 500;
+		final int numBarras = 20; //Puede variar dependiendo de lo bonito de la grafica
 		
 		//Crypta criptaLink = new Crypta();     //<-- para usar las dll (de 32 bits)
 		//System.out.println(System.getProperty("java.library.path"));

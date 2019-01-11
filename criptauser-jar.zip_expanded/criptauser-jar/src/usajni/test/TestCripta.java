@@ -1,9 +1,6 @@
 package usajni.test;
 
 import static org.junit.Assert.*;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import usajni.Resultados;
@@ -15,13 +12,13 @@ public class TestCripta {
 		String pass = "mipassword";
 		String sal = "sa";
 		int n = 500;
-		int numBarras = 10;
+		int numBarras = 20;
 		long porcentajeVariacion = 0;
 		long porcentajeVariacionTotal = 0;
-		long minAntiguo = 26;
-		long maxAntiguo = 104;
-		long mediaAntigua = 65;
-		long desvEstAntigua = 12;
+		long minAntiguo = 27;
+		long maxAntiguo = 80;
+		long mediaAntigua = 51;
+		long desvEstAntigua = 9;
 		
 		Resultados res = new Resultados(pass,sal,n,numBarras);
 		res.calcula();
